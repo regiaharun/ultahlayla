@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#f59bb6">
+<title>Untuk Kamu ♡</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=DM+Sans:wght@400;500;600&family=Playfair+Display:wght@500;600&display=swap');
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#fff7f9;color:#774355;font-family:'DM Sans',sans-serif}
+button,a{font:inherit}.hidden{display:none!important}
+
+/* HUJAN BUNGA & LOVE */
+#petalsRain{position:fixed;inset:0;pointer-events:none;z-index:40;overflow:hidden}
+.petal{position:absolute;top:-10vh;will-change:transform,opacity;animation:petalFall linear infinite}
+@keyframes petalFall{
+  0%{transform:translateY(0) translateX(0) rotate(0deg);opacity:0}
+  8%{opacity:.9}
+  92%{opacity:.9}
+  100%{transform:translateY(115vh) translateX(var(--drift)) rotate(360deg);opacity:0}
+}
+
+/* OPENING */
+#opening{position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden;background:radial-gradient(circle at 50% 42%,#fff9fb 0,#ffe7ee 46%,#f9c2d2 100%);transition:opacity .9s,transform .9s}
+#opening.exit{opacity:0;transform:scale(1.05);pointer-events:none}
+.opening-card{width:min(90%,620px);padding:48px 25px;position:relative}
+.mini-lily{font-size:58px;color:#ed8faa;filter:drop-shadow(0 8px 10px #b54f7022);animation:float 3s ease-in-out infinite}
+.opening-card h1{font-family:'Caveat';font-size:72px;line-height:1;color:#c4476d;margin:10px 0}
+.opening-card h2{font-family:'Playfair Display';font-size:23px;font-weight:500;margin:0 0 15px;color:#8c4c60}
+.opening-card p{max-width:440px;margin:0 auto 28px;color:#956676;line-height:1.8}
+.open-btn{border:0;background:#d9577c;color:white;padding:15px 30px;border-radius:40px;cursor:pointer;box-shadow:0 12px 28px #c94f722e;font-weight:600;transition:.25s}
+.open-btn:hover{transform:translateY(-3px) scale(1.02)}
+.open-note{font-size:11px!important;margin-top:16px!important;color:#b17b89!important}
+.petal{position:absolute;color:#e37c99;font-size:25px;opacity:.7;animation:fall linear infinite}
+.petal:nth-child(1){left:8%;top:-5%;animation-duration:8s}.petal:nth-child(2){left:24%;top:-10%;animation-duration:11s}.petal:nth-child(3){left:72%;top:-5%;animation-duration:9s}.petal:nth-child(4){left:88%;top:-12%;animation-duration:12s}.petal:nth-child(5){left:55%;top:-8%;animation-duration:10s}.petal:nth-child(6){left:38%;top:-15%;animation-duration:13s}
+
+/* SITE */
+#site{opacity:0;transition:opacity 1s}.music{position:sticky;top:0;z-index:100;height:66px;background:#ffedf2ee;backdrop-filter:blur(14px);border-bottom:1px solid #f2c8d4;display:flex;align-items:center;gap:13px;padding:9px 5%;box-shadow:0 5px 20px #8f405e12}
+.music-disc{width:44px;height:44px;border-radius:50%;background:#d9577c;color:#fff;display:grid;place-items:center;font-size:23px}
+.spotify-top{margin-left:auto}
+.music button,.spotify-button{border:0;background:#d9577c;color:white;border-radius:25px;padding:10px 16px;font-size:12px;font-weight:600;cursor:pointer}.spotify-top{color:#a3405d;font-size:12px}
+.nav{height:64px;display:flex;align-items:center;justify-content:space-between;padding:0 7%;background:#fffafb;border-bottom:1px solid #f4d9df}
+.logo{font-family:'Caveat';font-size:26px;color:#a9405e}.nav-links{display:flex;gap:25px;font-size:12px;color:#966575}
+.section{padding:90px 7%;position:relative;overflow:hidden}
+.hero{min-height:650px;display:flex;align-items:center;justify-content:center;gap:7%;background:linear-gradient(135deg,#fff8fa,#ffe1e9)}
+.hero-copy{max-width:570px}.eyebrow,.label{font-size:10px;letter-spacing:4px;color:#d25779;font-weight:700}.hero h1{font-family:'Caveat';font-size:90px;line-height:.95;color:#c3446a;margin:16px 0}.hero h1 span{font-family:serif;font-size:55px}
+.hero p{font-family:'Playfair Display';font-size:16px;max-width:500px;color:#805666}.hero-photo{width:330px;background:#fff;padding:13px 13px 45px;transform:rotate(3deg);box-shadow:0 20px 45px #8d405e1c}.hero-photo img{width:100%;height:350px;object-fit:cover;background:#f9dce4}.caption{font-family:'Caveat';font-size:23px;text-align:center;margin:5px 0 0}
+.placeholder{height:350px;display:grid;place-items:center;text-align:center;background:linear-gradient(135deg,#f9c3d1,#fff5f7);color:#bc607a;font-family:'Caveat';font-size:25px}.placeholder small{display:block;font-family:'DM Sans';font-size:10px}
+.primary{display:inline-block;border:0;background:#d9577c;color:#fff;padding:13px 21px;border-radius:28px;cursor:pointer;box-shadow:0 10px 22px #c94f7225;font-weight:600}
+.intro{background:#fff;display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}.intro h2,.section h2{font-family:'Playfair Display';font-size:39px;line-height:1.25;color:#8e4057}.intro h2 em,.closing h2 em{font-family:'Caveat';font-size:48px;color:#d05276;font-style:normal}.intro p{font-family:'Playfair Display';font-size:16px}
+.head{display:flex;justify-content:space-between;align-items:end;margin-bottom:35px}.head p{color:#a06c7a}.center{text-align:center;display:block}.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}.gallery figure{margin:0;background:#fff;padding:10px 10px 15px;border-radius:12px;box-shadow:0 12px 30px #8d405e13}.gallery figure:nth-child(2),.gallery figure:nth-child(5){transform:translateY(18px) rotate(-1deg)}.gallery img{width:100%;height:255px;object-fit:cover;background:#f8dbe3;border-radius:8px}.gallery figcaption{text-align:center;font-family:'Caveat';font-size:20px;color:#a34a65}
+.soft{background:#ffedf2}.timeline{display:grid;grid-template-columns:repeat(4,1fr);gap:25px}.event{text-align:center}.dot{width:55px;height:55px;border-radius:50%;background:#fff;border:3px solid #efb2c3;margin:auto;display:grid;place-items:center;color:#d05276;font-size:21px}.event h3{font-family:'Playfair Display';font-size:17px;margin:13px 0 2px}.event b{font-size:11px;color:#d05276}.event p{font-size:13px;color:#906a77}
+.letter-area{display:grid;grid-template-columns:1.5fr .65fr;gap:45px;align-items:center;background:#fff}.letter{text-align:center}.paper{text-align:left;background:#fffaf6;border:1px solid #efd4c8;padding:38px 45px;box-shadow:0 16px 40px #8d405e12;margin-top:20px}.paper p{font-family:'Caveat';font-size:21px;color:#765262}.sign{text-align:right;font-family:'Caveat';font-size:24px;color:#c24d70}.flower-card{background:#ffe8ef;border-radius:25px;padding:50px 25px;text-align:center}.flower-card .lily{font-size:90px}.flower-card p{font-family:'Caveat';font-size:25px}.flower-card img{width:150px;height:150px;object-fit:cover;border-radius:50%;border:5px solid #fff;box-shadow:0 12px 30px #8d405e30;margin-bottom:18px}
+.music-section{background:#fff8fa}.spotify-box{max-width:850px;margin:auto;display:flex;align-items:center;gap:24px;background:#fff;padding:24px;border:1px solid #f1cbd5;border-radius:20px;box-shadow:0 15px 35px #8d405e12}.cover{width:125px;height:125px;border-radius:12px;background:linear-gradient(135deg,#e889a3,#b74d70);color:white;display:grid;place-items:center;font-size:55px;border:0;cursor:pointer;flex-shrink:0;transition:.2s}.cover:hover{transform:scale(1.04)}.spotify-copy h3{font-family:'Playfair Display';font-size:24px;margin:0}.spotify-copy p{color:#9a6c79}
+.progress-wrap{margin:12px 0}.progress-wrap input[type=range]{width:100%;accent-color:#d9577c;cursor:pointer}
+.music-disc{border:0;cursor:pointer}
+.reasons{max-width:960px;margin:auto;display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.reason-card{background:#fff;border:1px solid #f1cbd5;border-radius:18px;padding:26px 22px;text-align:center;box-shadow:0 12px 28px #8d405e10;transition:.25s}
+.reason-card:hover{transform:translateY(-5px)}
+.reason-card .dot{width:46px;height:46px;margin:0 auto 14px;border-radius:50%;background:linear-gradient(135deg,#e889a3,#b74d70);color:#fff;display:grid;place-items:center;font-size:20px}
+.reason-card p{color:#7a4a56;font-size:15px;line-height:1.6;margin:0}
+@media(max-width:700px){.reasons{grid-template-columns:1fr}}
+.toast-note{position:fixed;left:50%;top:50%;transform:translate(-50%,-50%) scale(.85);background:linear-gradient(135deg,#e889a3,#b74d70);color:#fff;padding:34px 38px;border-radius:26px;font-size:20px;font-weight:600;line-height:1.5;box-shadow:0 25px 60px #8d405e55;opacity:0;pointer-events:none;transition:opacity .5s ease,transform .5s ease;z-index:999;text-align:center;max-width:min(420px,86%)}
+.toast-note.show{opacity:1;transform:translate(-50%,-50%) scale(1)}
+.scroll-progress{position:fixed;top:0;left:0;width:100%;height:5px;background:#ffe3ea;z-index:1000}
+.scroll-progress-fill{height:100%;width:0%;background:linear-gradient(90deg,#e889a3,#b74d70);position:relative}
+.scroll-progress-fill:after{content:'♡';position:absolute;right:-9px;top:50%;transform:translateY(-50%);font-size:12px;color:#b74d70;background:#fff;border-radius:50%;width:17px;height:17px;display:grid;place-items:center;box-shadow:0 2px 6px #8d405e40}
+.click-heart{position:fixed;pointer-events:none;z-index:9998;animation:clickHeartPop .9s ease-out forwards}
+@keyframes clickHeartPop{0%{opacity:1;transform:translate(0,0) scale(.6)}100%{opacity:0;transform:translate(var(--dx),var(--dy)) scale(1.3)}}.embed{max-width:850px;margin:20px auto 0}.embed iframe{border-radius:13px}.note{text-align:center;font-size:11px;color:#aa7a87;max-width:850px;margin:14px auto 0}
+.player-card{border-radius:24px;transition:box-shadow .4s ease,transform .4s ease}
+.player-card.attention{animation:playerPulse 1.6s ease-in-out 2}
+@keyframes playerPulse{0%,100%{box-shadow:0 0 0 0 #d9577c00;transform:scale(1)}50%{box-shadow:0 0 0 14px #d9577c22;transform:scale(1.01)}}
+.closing{text-align:center;min-height:500px;background:linear-gradient(#ffe2ea,#ffd0dd);display:flex;flex-direction:column;align-items:center;justify-content:center}.closing h2{font-size:40px}.closing .big-heart{font-size:38px;color:#d34e73}.closing .forever{font-family:'Caveat';font-size:29px;color:#a83e5d}footer{text-align:center;background:#c95073;color:white;padding:24px;font-size:11px}
+
+/* EXTRA PINK FLOWER DECORATIONS */
+.floral-corner{position:absolute;z-index:1;display:flex;align-items:flex-end;gap:2px;filter:drop-shadow(0 10px 10px rgba(177,64,99,.12));pointer-events:none}
+.floral-corner span{font-size:52px;display:block;animation:flowerFloat 4s ease-in-out infinite}
+.floral-corner span:nth-child(2){font-size:68px;animation-delay:.5s}
+.floral-corner span:nth-child(3){font-size:42px;animation-delay:1s}
+.floral-tl{left:-4px;top:-2px;transform:rotate(-10deg)}
+.floral-tr{right:-4px;top:0;transform:rotate(10deg)}
+.floral-bl{left:-2px;bottom:-4px;transform:rotate(8deg)}
+.floral-br{right:-2px;bottom:-3px;transform:rotate(-8deg)}
+.hero-flower,.side-flower,.floating-bouquet{position:absolute;pointer-events:none;user-select:none;filter:drop-shadow(0 10px 12px rgba(180,66,101,.13))}
+.hero-flower{font-size:120px;opacity:.58;animation:flowerFloat 5s ease-in-out infinite}
+.hero-flower-left{left:-24px;top:40px;transform:rotate(-18deg)}
+.hero-flower-right{right:-24px;bottom:28px;transform:rotate(18deg);animation-delay:1s}
+.side-flower{font-size:88px;opacity:.35;animation:flowerFloat 6s ease-in-out infinite}
+.side-flower-left{left:-25px;top:38%;transform:rotate(-16deg)}
+.side-flower-right{right:-25px;bottom:14%;transform:rotate(16deg);animation-delay:1.3s}
+.floating-bouquet{right:4%;top:8px;font-size:42px;letter-spacing:-8px;opacity:.5;animation:flowerFloat 5.5s ease-in-out infinite}
+.flower-card{position:relative;overflow:hidden}
+.flower-card:before,.flower-card:after{content:'🌸';position:absolute;font-size:55px;opacity:.45}
+.flower-card:before{left:-12px;top:-8px;transform:rotate(-25deg)}
+.flower-card:after{right:-12px;bottom:-10px;transform:rotate(25deg)}
+.closing:after{content:'🌸 🌷 🌸';position:absolute;left:2%;bottom:10px;font-size:70px;opacity:.48;letter-spacing:-12px}
+.closing:before{content:'🌸 🌷 🌸';position:absolute;right:2%;top:10px;font-size:70px;opacity:.48;letter-spacing:-12px}
+@keyframes flowerFloat{0%,100%{transform:translateY(0) rotate(-5deg)}50%{transform:translateY(-9px) rotate(5deg)}}
+@media(max-width:800px){
+ .floral-corner span{font-size:32px}.floral-corner span:nth-child(2){font-size:43px}
+ .hero-flower{font-size:70px}.side-flower{font-size:58px}.floating-bouquet{font-size:28px}
+ .closing:after,.closing:before{font-size:45px}
+}
+
+@keyframes fall{0%{transform:translateY(-10vh) rotate(0);opacity:0}15%{opacity:.8}100%{transform:translateY(115vh) rotate(360deg);opacity:0}}@keyframes float{50%{transform:translateY(-10px)}}@keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+.reveal{opacity:0;transform:translateY(22px)}.reveal.show{animation:fadeUp .8s forwards}
+@media(max-width:800px){.music{padding:8px 3%}.spotify-top{display:none}.nav{padding:0 5%}.nav-links{display:none}.section{padding:65px 6%}.hero{flex-direction:column;text-align:center;padding-top:70px}.hero h1{font-size:70px}.hero-copy{display:flex;flex-direction:column;align-items:center}.hero-photo{width:285px}.hero-photo img,.placeholder{height:300px}.intro,.letter-area{grid-template-columns:1fr;gap:30px}.head{display:block;text-align:center}.gallery{grid-template-columns:1fr 1fr;gap:12px}.gallery img{height:180px}.timeline{grid-template-columns:1fr 1fr;gap:30px}.paper{padding:25px}.spotify-box{flex-direction:column;text-align:center}.closing h2{font-size:31px}.closing h2 em{font-size:38px}.opening-card h1{font-size:62px}.opening-card h2{font-size:19px}}
+</style>
+</head>
+<body>
+
+<div class="scroll-progress"><div class="scroll-progress-fill" id="scrollFill"></div></div>
+<div id="petalsRain"></div>
+
+<!-- HALAMAN RAHASIA / PEMBUKA -->
+<div id="opening">
+  <div class="floral-corner floral-tl"><span>🌸</span><span>🌷</span><span>🌸</span></div>
+  <div class="floral-corner floral-tr"><span>🌷</span><span>🌸</span><span>🌸</span></div>
+  <div class="floral-corner floral-bl"><span>🌸</span><span>🌷</span></div>
+  <div class="floral-corner floral-br"><span>🌷</span><span>🌸</span><span>🌸</span></div>
+  <span class="petal">♡</span><span class="petal">🌸</span><span class="petal">♡</span>
+  <span class="petal">🌸</span><span class="petal">♡</span><span class="petal">🌷</span>
+  <div class="opening-card">
+    <div class="mini-lily">🌸</div>
+    <h2>Aloo Sayang</h2>
+    <h1>Ada sesuatu nih buat kamu ♡</h1>
+    <p>Aku nyiapin sebuah hadiah kecil. Jangan buru-buru ya, buka pelan-pelan dan santay hehe. 💗</p>
+    <button class="open-btn" id="nextBtn">💌 Lanjut</button>
+    <p class="open-note"> ♡♡♡♡♡♡♡♡♡♡♡♡♡♡♡♡♡♡♡♡♡</p>
+  </div>
+</div>
+
+<div id="site">
+  <audio id="audioPlayer" src="assets/lagu.mp3" preload="metadata"></audio>
+  <div class="toast-note" id="toastNote">🎵 Jangan lupa play dulu lagunya ya~ biar makin berasa hehe</div>
+  <div class="music">
+    <button class="music-disc" id="discToggle" aria-label="Putar/Jeda lagu">♫</button>
+    <button id="musicBtn">▶ Putar Lagu</button>
+  </div>
+  <header class="nav">
+    <a class="logo" href="#home">Happy Birthday ♥</a>
+    <nav class="nav-links"><a href="#home">Beranda</a><a href="#foto">Foto</a><a href="#momen">Momen</a><a href="#surat">Surat</a><a href="#alasan">Alasan</a></nav>
+  </header>
+
+  <main>
+    <section class="section hero" id="home">
+      <div class="hero-flower hero-flower-left">🌸</div>
+      <div class="hero-flower hero-flower-right">🌷</div>
+      <div class="hero-copy reveal">
+        <span class="eyebrow">H A P P Y &nbsp; B I R T H D A Y</span>
+        <h1>Layla Ramadhani <span>♡</span></h1>
+        <p>Hari ini adalah hari spesial karena seseorang yang sangat berarti buat aku sedang bertambah satu tahun lagi. Semoga halaman kecil ini menjadi hadiah sederhana yang membuat kamu tersenyum (:</p>
+        <button class="primary" id="heroMusic">♡ &nbsp; Lihat Kejutannya</button>
+      </div>
+      <div class="hero-photo reveal">
+        <img src="assets/foto-1.jpg" alt="Foto kita" onerror="this.style.display='none';this.nextElementSibling.classList.add('show')">
+      
+        <p class="caption">You & Me ♡</p>
+      </div>
+    </section>
+
+    <section class="section intro reveal">
+      <div><span class="label">UNTUK KAMU</span><h2>Karena kamu pantas<br><em>mendapatkan yang indah.</em></h2></div>
+      <p>Aku engga bisa memberikan seluruh dunia untukmu, tapi aku ingin memberikan satu halaman kecil yang isinya tentang kamu, tentang kita, dan tentang semua hal yang membuatku bersyukur sudah mengenalmu.</p>
+    </section>
+
+    <section class="section decorated-section" id="foto">
+      <div class="side-flower side-flower-left">🌸</div>
+      <div class="side-flower side-flower-right">🌸</div>
+      <div class="head"><div><span class="label">OUR LITTLE MEMORIES</span><h2>Galeri Foto Kita 🌷</h2></div><p>Kenangan yang ingin aku simpan.</p></div>
+      <div class="gallery">
+        <figure><img src="assets/foto-1.jpg" alt="Foto 1"><figcaption>♡</figcaption></figure>
+        <figure><img src="assets/foto-2.jpg" alt="Foto 2"><figcaption>♡♡</figcaption></figure>
+        <figure><img src="assets/foto-3.jpg" alt="Foto 3"><figcaption>♡♡♡</figcaption></figure>
+        <figure><img src="assets/foto-4.jpg" alt="Foto 4"><figcaption>♡♡♡♡</figcaption></figure>
+        <figure><img src="assets/foto-5.jpg" alt="Foto 5"><figcaption>♡♡♡♡♡</figcaption></figure>
+        <figure><img src="assets/foto-6.jpg" alt="Foto 6"><figcaption>♡♡♡♡♡♡</figcaption></figure>
+      </div>
+    </section>
+
+    <section class="section soft decorated-section" id="momen">
+      <div class="side-flower side-flower-left">🌷</div>
+      <div class="side-flower side-flower-right">🌸</div>
+      <div class="head center"><span class="label">OUR STORY</span><h2>Momen Kita ♡</h2><</div>
+      <div class="timeline">
+        <article class="event"><div class="dot">♡</div><h3>Pertama Bertemu</h3><b>6 April 2026</b><p>Awalnya cuma kebetulan, tapi ternyata menjadi awal cerita yang luar biasa.</p></article>
+        <article class="event"><div class="dot">♥</div><h3>Jadi Dekat</h3><b>11 Juli 2026</b><p>Awal mula call.</p></article>
+        <article class="event"><div class="dot">⌂</div><h3>Bersama</h3><b>1 Agu 2026</b><p>Bilang kalo aku sayang kamu.</p></article>
+        <article class="event"><div class="dot">∞</div><h3>Selamanya</h3><b>14 September 2026</b><p>Semoga kita selalu punya alasan untuk memilih satu sama lain.</p></article>
+      </div>
+    </section>
+
+    <section class="section letter-area decorated-section" id="surat">
+      <div class="floating-bouquet">🌸🌷🌸</div>
+      <div class="letter"><span class="label">A LITTLE LETTER</span><h2>Surat Kecil Untukmu 💌</h2><p> Baca ini pelan-pelan, ya...</p>
+        <div class="paper">
+          <p>Sayangku,</p>
+          <p>Terima kasih sudah hadir dan menjadi bagian dari hidupku. Terima kasih untuk semua tawa, cerita, perhatian, dan hari-hari yang berhasil kita lewati bersama.</p>
+          <p>Di ulang tahunmu kali ini, aku cuma ingin kamu tahu bahwa kamu sangat berharga. Semoga semua mimpi dan harapanmu satu per satu menemukan jalannya. Semoga kamu selalu dikelilingi hal-hal baik.</p>
+          <p>Aku mungkin engga selalu sempurna dalam menunjukkan rasa sayang, tapi satu hal yang pasti aku selalu senang punya kamu aku selalu senang menyayangimu.</p>
+          <p>Selamat ulang tahun, cintaku. I love you sooooo muchh. ♡</p>
+          <div class="sign">— Dari aku, yang sayang kamu</div>
+        </div>
+      </div>
+      <div class="flower-card"><img src="assets/foto-favorite.jpg" alt="Kamu"><p>You are<br><strong>my favorite person</strong><br>in this world ♡</p></div>
+    </section>
+
+    <section class="section soft decorated-section" id="alasan">
+      <div class="side-flower side-flower-left">🌸</div>
+      <div class="side-flower side-flower-right">🌷</div>
+      <div class="head center"><span class="label">JUST BECAUSE</span><h2>Alasan Aku Sayang Kamu ♡</h2><p>Sebenernya alasannya engga terbatas sihh, tapi ini beberapa di antaranya.</p></div>
+      <div class="reasons">
+        <article class="reason-card"><div class="dot">☺</div><p>Karena senyummu selalu bisa bikin hari burukku jadi lebih baik.</p></article>
+        <article class="reason-card"><div class="dot">✧</div><p>Karena di dekatmu aku merasa bahagia, apapun itu.</p></article>
+        <article class="reason-card"><div class="dot">☁</div><p>Karena kamu pintar, hebat dan berbakat.</p></article>
+        <article class="reason-card"><div class="dot">♡</div><p>Karena kamu selalu ada, di saat baik maupun susah.</p></article>
+        <article class="reason-card"><div class="dot">✦</div><p>Karena kamu cantik dan lucuu jadi aku makin sayang kamu.</p></article>
+        <article class="reason-card"><div class="dot">∞</div><p>Karena sesederhana apapun momennya, jadi berarti kalau ada kamu.</p></article>
+      </div>
+    </section>
+
+    <section class="section closing">
+      <div style="font-size:38px">🌸 🌷 🌸</div><span class="label">ONE LAST THING</span>
+      <h2>Terima kasih sudah<br><em>menjadi bagian indah dalam hidupku.</em></h2>
+      <p>Selamat Ulang Tahun, Sayang ♡</p><p>kadonya pagi yaaa hehe</p><div class="big-heart">♥</div><div class="forever">Always & Forever</div>
+    </section>
+  </main>
+  <footer>Made with ♡ especially for you</footer>
+</div>
+
+<script>
+// ==============================
+// GANTI DATA DI BAGIAN INI
+// ==============================
+const CONFIG = {
+  namaPasangan: "Sayangku",
+  judulLagu: "A Thousand Years",
+  artisLagu: "Christina Perri",
+  audioFile: "assets/lagu.mp3"
+};
+// ==============================
+
+const opening=document.getElementById('opening');
+const site=document.getElementById('site');
+const nextBtn=document.getElementById('nextBtn');
+const audio=document.getElementById('audioPlayer');
+let stage=1;
+
+nextBtn.addEventListener('click',()=>{
+  if(stage===1){
+    stage=2;
+    nextBtn.textContent='🎁 Buka Hadiahmu';
+    document.querySelector('.opening-card h2').textContent='Tapi janji duluuukk';
+    document.querySelector('.opening-card h1').textContent='Hari ini kamu harus bahagia ♡';
+    document.querySelector('.opening-card p').textContent='Karena hari ini adalah hari kamu ';
+    return;
+  }
+  opening.classList.add('exit');
+  setTimeout(()=>{opening.classList.add('hidden');site.style.opacity='1';document.body.style.overflow='auto';},900);
+  document.body.style.overflow='hidden';
+  setTimeout(()=>document.querySelectorAll('.reveal').forEach(x=>x.classList.add('show')),500);
+  // pesan kecil pengingat biar pasangan kamu pencet play manual di ikon musik/bar atas
+  setTimeout(()=>{
+    const toast=document.getElementById('toastNote');
+    toast.classList.add('show');
+    setTimeout(()=>toast.classList.remove('show'),5500);
+  },1100);
+});
+
+document.body.style.overflow='hidden';
+
+audio.src=CONFIG.audioFile;
+
+function togglePlay(){
+  if(audio.paused){audio.play().catch(()=>{});}else{audio.pause();}
+}
+function updatePlayUI(){
+  const playing=!audio.paused;
+  document.getElementById('discToggle').textContent=playing?'❚❚':'♫';
+  document.getElementById('musicBtn').textContent=playing?'❚❚ Jeda Lagu':'▶ Putar Lagu';
+}
+audio.addEventListener('play',updatePlayUI);
+audio.addEventListener('pause',updatePlayUI);
+document.getElementById('musicBtn').addEventListener('click',togglePlay);
+document.getElementById('discToggle').addEventListener('click',togglePlay);
+document.getElementById('heroMusic').addEventListener('click',()=>{
+  document.getElementById('foto').scrollIntoView({behavior:'smooth'});
+});
+
+// hujan bunga & love pelan-pelan di seluruh halaman
+const petalEmojis=['🌸','🌷','💗','🌺','💮','🌼'];
+const petalsRain=document.getElementById('petalsRain');
+function spawnPetal(){
+  const p=document.createElement('span');
+  p.className='petal';
+  p.textContent=petalEmojis[Math.floor(Math.random()*petalEmojis.length)];
+  const size=14+Math.random()*16;
+  p.style.left=Math.random()*100+'vw';
+  p.style.fontSize=size+'px';
+  p.style.setProperty('--drift',(Math.random()*80-40)+'px');
+  const duration=9+Math.random()*8;
+  p.style.animationDuration=duration+'s';
+  petalsRain.appendChild(p);
+  setTimeout(()=>p.remove(),duration*1000+200);
+}
+for(let i=0;i<10;i++)setTimeout(spawnPetal,i*450);
+setInterval(spawnPetal,750);
+
+// progress bar hati pas discroll
+const scrollFill=document.getElementById('scrollFill');
+function updateScrollProgress(){
+  const h=document.documentElement;
+  const scrolled=h.scrollTop;
+  const max=h.scrollHeight-h.clientHeight;
+  scrollFill.style.width=(max>0?(scrolled/max)*100:0)+'%';
+}
+window.addEventListener('scroll',updateScrollProgress);
+updateScrollProgress();
+
+// efek hati/konfeti kecil tiap diklik
+document.addEventListener('click',(e)=>{
+  const icons=['💗','💕','✨','🌸'];
+  for(let i=0;i<6;i++){
+    const h=document.createElement('span');
+    h.className='click-heart';
+    h.textContent=icons[Math.floor(Math.random()*icons.length)];
+    h.style.fontSize=(14+Math.random()*10)+'px';
+    h.style.left=e.clientX+'px';
+    h.style.top=e.clientY+'px';
+    const angle=Math.random()*Math.PI*2;
+    const dist=35+Math.random()*55;
+    h.style.setProperty('--dx',Math.cos(angle)*dist+'px');
+    h.style.setProperty('--dy',Math.sin(angle)*dist+'px');
+    document.body.appendChild(h);
+    setTimeout(()=>h.remove(),950);
+  }
+});
+
+window.addEventListener('scroll',()=>{
+ document.querySelectorAll('.reveal').forEach(el=>{
+  const r=el.getBoundingClientRect();
+  if(r.top<window.innerHeight*.88)el.classList.add('show');
+ });
+});
+</script>
+</body>
+</html>
